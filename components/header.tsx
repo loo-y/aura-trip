@@ -1,55 +1,45 @@
-"use client";
-import React from 'react'
-import Link from "next/link";
-import { ThemeToggle } from "./theme-toggle";
-import { Button } from "./ui/button";
-import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-  } from "./ui/sheet"
-import { useEffect, useState } from "react";
-import { Menu, Plane } from "lucide-react";
+'use client';
+import React from 'react';
+import Link from 'next/link';
+import { ThemeToggle } from './theme-toggle';
+import { Button } from './ui/button';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
+import { useEffect, useState } from 'react';
+import { Menu, Plane } from 'lucide-react';
 
-  
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+	useEffect(() => {
+		const handleScroll = () => {
+			const offset = window.scrollY;
+			if (offset > 50) {
+				setScrolled(true);
+			} else {
+				setScrolled(false);
+			}
+		};
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 
-  return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <Plane className="h-6 w-6 text-primary" />
-          <span className="font-bold text-xl">Aura Trip</span>
-        </Link>
+	return (
+		<header
+			className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+				scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+			}`}
+		>
+			<div className="container mx-auto px-4 py-4 flex items-center justify-between">
+				<Link href="/" className="flex items-center space-x-2">
+					<Plane className="h-6 w-6 text-primary" />
+					<span className="font-bold text-xl">Aura Trip</span>
+				</Link>
 
-        {/* Desktop Navigation */}
-        {/* <nav className="hidden md:flex items-center space-x-8">
+				{/* Desktop Navigation */}
+				{/* <nav className="hidden md:flex items-center space-x-8">
           <Link
             href="/"
             className="text-foreground/80 hover:text-foreground transition-colors"
@@ -77,8 +67,8 @@ export function Header() {
           <ThemeToggle />
         </nav> */}
 
-        {/* Mobile Navigation */}
-        {/* <div className="flex items-center space-x-4 md:hidden">
+				{/* Mobile Navigation */}
+				{/* <div className="flex items-center space-x-4 md:hidden">
           <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>
@@ -119,7 +109,7 @@ export function Header() {
             </SheetContent>
           </Sheet>
         </div> */}
-      </div>
-    </header>
-  );
+			</div>
+		</header>
+	);
 }
