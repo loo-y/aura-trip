@@ -111,7 +111,7 @@ export function LandingHero() {
       {/* Hero content */}
       <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-screen z-10 text-white">
         <h1 className="text-4xl md:text-6xl font-bold text-center mb-6 animate-item">
-          Discover Your Perfect Journey
+          Discover Your Perfect Aura Trip
         </h1>
         <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl animate-item">
           Tell us what you're looking for, and we'll craft the ideal travel experience for you.
@@ -120,14 +120,14 @@ export function LandingHero() {
         {/* Input form */}
         <form 
           onSubmit={handleSubmit}
-          className="w-full max-w-2xl animate-item bg-black/30 backdrop-blur-md p-6 rounded-lg shadow-lg border border-white/10"
+          className="w-full max-w-4xl animate-item bg-black/30 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 outline-none focus:outline-none"
         >
           <div className="relative flex items-center">
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Describe your dream vacation..."
-              className="pr-24 py-6 text-base bg-white/10 border-white/20 text-white placeholder:text-white/60"
+              className="pr-24 py-6 text-base bg-white/10 border-white/20 text-white placeholder:text-white/60 outline-none !focus:outline-none"
               disabled={isRecording || isProcessingInput}
             />
             <div className="absolute right-2 flex space-x-2">
@@ -167,7 +167,7 @@ export function LandingHero() {
             </div>
           )}
 
-          <div className="mt-4 text-sm text-white/70">
+          <div className="mt-4 text-sm text-white/70 text-center">
             Try saying: "I want to visit Japan for 10 days with cultural experiences"
           </div>
         </form>
